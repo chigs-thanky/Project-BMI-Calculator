@@ -1,2 +1,2 @@
 # Project-BMI-Calculator
-Created a BMI calculator using HTML, CSS and JavaScript
+Made a calculator to calculate BMI (Body Mass Index) using JavaScript

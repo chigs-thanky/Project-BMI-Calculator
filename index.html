@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BMI Project</title>
+  <link rel="icon" href="./Assets/favicon.ico">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: lightblue;
+      padding: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      /* flex-direction: column; */
+      /* justify-content: space-around; */
+      /* align-items: center; */
+      /* align-content: space-around; */
+      /* gap: 5px; */
+    }
+
+    .text {
+      /* width: 50%; */
+      border: 2px solid black;
+      background-color: #d21e7273;
+      display: flex;
+      flex-direction: column;
+      justify-content:baseline;
+      gap: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 5px;
+      margin-bottom: 24px;
+      align-self:stretch;
+    }
+
+    .calcbtn {
+      font-size: 24px;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: orangered;
+      color: aliceblue;
+      border: none;
+
+    }
+
+    #result {
+      font-size: 24px;
+      border-radius: 10px;
+      background-color: teal;
+      color: khaki;
+      padding: 10px;
+      text-decoration: underline;
+      text-shadow: 5px 5px 10px grey;
+      box-shadow: 5px 5px 15px 10px grey;
+    }
+
+    #result::before {
+      content: "Your BMI Index is: ";
+    }
+
+    .footer {
+      width: 100%;
+      /* display: inline; */
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      background-color: black;
+      /* border: 2px solid rgba(11, 105, 187, 0.849); */
+      color: aliceblue;
+      padding: 10px;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .container {
+      display: flex;
+      /* justify-content: space-around; */
+      width: 100%;
+      /* height: 100vh; */
+      border: 2px solid black;
+      background-color: #3f1ed294;
+      gap: 20px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    img {
+      width: 1030px;
+      height: auto;
+      height: 90vh;
+      border: 2px solid black;
+      border-radius: 10px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="text">
+      <h2>Find your BMI Here:</h2>
+      <input id="input_weight" type="text" placeholder="Enter your weight (in Kgs)" min="10" required />
+      <input id="input_height" type="text" placeholder="Enter your height (in Cms)" min="10" required />
+      <button class="calcbtn" id="calcbtn" onclick="BMI()">Calculate</button>
+      <span id="result"></span>
+    </div>
+
+
+    <div class="image">
+      <img src="https://as1.ftcdn.net/v2/jpg/05/11/15/48/1000_F_511154814_62jWTXOzW1WDNy0YSO6dScrsF9eb6Dbg.jpg"
+        alt="BMI Chart">
+    </div>
+  </div>
+  <footer>
+    <div class="footer">
+      <p>&copy; Chirag Thanki. All rights reserved.</p>
+      <!-- Q. Why this is not covering the entire width? -->
+      <!-- A. Because you didn't set the border.-->
+    </div>
+  </footer>
+</body>
+<script>
+  //    var a=  document.getElementById("one").textContent;
+  //    document.getElementById("two").innerHTML=a;
+  // //    OR
+  // document.getElementById("two").innerHTML=document.getElementById("one").textContent;;
+
+  var kg;
+  var cm;
+  // kg = 64;
+  // cm = 176;
+  function BMI() {
+    // parseFloat() is used to convert the input values to floating-point numbers
+    kg = parseFloat(document.getElementById("input_weight").value);
+    cm = parseFloat(document.getElementById("input_height").value);
+    var BMIValue = kg / (cm / 100) ** 2;
+    // document.getElementById("result").innerHTML = "Your BMI Index is: " + BMIValue.toFixed(2);
+    document.getElementById("result").innerHTML = BMIValue.toFixed(2); //toFixed is used to round the BMI value to 2 decimal places. 
+  }
+</script>
+
+</html>
